@@ -1,0 +1,4 @@
+Coloque nesta pasta somente fotos e materiais que possam ser exibidos publicamente,
+com autorização apropriada dos responsáveis, especialmente em relação a menores.
+Depois referencie, por exemplo, assets/foto-autorizada.jpg no arquivo homenageados.js.
+A versão inicial não inclui fotos nem nomes de estudantes.
