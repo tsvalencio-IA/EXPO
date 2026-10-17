@@ -1,42 +1,55 @@
-# EXPO KUMON 2026 · Celebração interativa ao vivo
+# EXPO KUMON • Cerimônia de Conquistas Ao Vivo
 
-**Endereço oficial:** https://expo-kumon.vercel.app/
+**Endereço oficial, único:** https://expo-kumon.vercel.app/
 
-Código-fonte: https://github.com/tsvalencio-IA/EXPO
+**Código-fonte:** https://github.com/tsvalencio-IA/EXPO
 
-## Começar a cerimônia
+## O produto entregue
 
-1. Abra https://expo-kumon.vercel.app/ e selecione **Iniciar cerimônia**.
-2. Selecione **Iniciar EXPO online agora**. Um código de seis dígitos é criado no Firebase existente.
-3. Em **Abrir telão**, use uma televisão ou projetor. O controle permanece no dispositivo do apresentador.
-4. Os convidados podem acessar pelo QR Code no slide de entrada ou por **Entrar no jogo**, digitando o código da sala.
-5. Pelo controle, avance slides, abra cada rodada, encerre respostas e revele gabaritos. Os celulares mostram os próprios acertos; o telão mostra somente resultados agregados.
-6. Em **Homenagens ao vivo**, cadastre homenagens autorizadas, escolha **Exibir no telão** e convide o público a **Aplaudir esta conquista** por celular. Essa área é de uso opcional.
-7. O botão **Fechar** retorna ao menu sem apagar a sessão; **Retomar controle** permite continuar no mesmo navegador.
+A edição REVOLUÇÃO transforma o projeto em uma plataforma de **direção de cerimônia de reconhecimento**, não apenas um quiz. O site é responsivo, com identidade audiovisual de palco, central de operação, fila de chamadas, homenagens e participação simultânea das famílias.
 
-## Como está implementado
+**Telão:** 20 etapas em salas novas (versão 4), com os homenageados em destaque já no primeiro terço da apresentação, medalha visual, animação leve, agradecimentos, resultados coletivos e QR Code para acesso. Sessões anteriores mantêm a ordem antiga.
 
-- Apresentação, controle e plateia atualizados em tempo real pelo **Firebase Realtime Database** da reunião de pais, usando somente `kumon_config/expo/sessions/{codigo}`.
-- O jogo de 5 perguntas impede respostas duplicadas da mesma sessão de navegador usando transação em cada resposta.
-- O telão reúne os resultados anonimamente. O navegador de cada participante acompanha seus próprios acertos/erros.
-- Reconhecimento em tempo real opcional com cadastro manual pelo apresentador e aplausos únicos por navegador.
-- Repositórios `reuniaoKumon`, `treinamento`, `Kumon-IA` e `KumonRP` **não foram modificados**.
-- Teste de integração REST em sessão temporária: **criar, avançar, responder de dois dispositivos, ler dados e apagar** passou em 17/10/2026. Isso **não substitui teste de carga e teste completo em dispositivos físicos**.
+**Controle:** central com sete marcos, botões de salto para abertura, acesso ao evento, premiação, homenagens, famílias, resultado coletivo e encerramento; fila de homenageados com chamadas anterior/próxima; notas para o apresentador; navegação de slides; resultado de acertos e erros; download de relatório técnico anônimo, sem IDs de participantes.
 
-## Fidelidade pedagógica
+**Participantes:** entram pelo QR ou código de seis dígitos; votação sincronizada pelo Firebase; resultado individual confirmado no celular; placar anônimo; aplauso individual por homenagem e retorno à sala sem perder a identificação neste navegador.
 
-O roteiro toma como referência a EXPO real de reconhecimento de alunos adiantados e concluintes e o método Kumon. O site oficial descreve o reconhecimento de esforço, dedicação e persistência, além do propósito de desenvolvimento da autonomia.
+**Recuperação:** controle persiste no navegador do organizador. Telão e controle mostram o estado de conexão com o Firebase, permitindo identificar perda de sincronização.
 
-Fontes institucionais: https://www.kumon.com.br/blog/no-kumon-a-sua-dedicacao-tem-reconhecimentos1/ e https://www.kumon.com.br/kumonconnect/ .
+## Começar, na prática
 
-**Não há nomes de homenageados, categorias individuais, indicadores internos ou imagens inventados.** Os dados individuais das outras aplicações não são divulgados automaticamente.
+1. Abra https://expo-kumon.vercel.app/ e escolha **Iniciar cerimônia**.
+2. Informe a unidade e selecione **Iniciar EXPO online agora**.
+3. Abra o telão na TV/projetor usando **Abrir telão**.
+4. Compartilhe somente o QR Code/link de **Participação**, nunca o endereço privativo de controle.
+5. Use a **Central de Cerimônia** para controlar os sete atos e as chamadas de premiação.
+6. Para o momento de perguntas, avance ao slide do desafio; as respostas abrem automaticamente. O apresentador encerra e revela.
+7. Ao terminar, apresente resultados coletivos; exporte o relatório anônimo se necessário.
 
-## Segurança e privacidade — leia antes de um evento público
+## Conteúdo oficial x dados que precisam vir da unidade
 
-O Firebase existente aceitou escrita e leitura **sem autenticação** em índice de teste exclusivo da EXPO. Essa é uma constatação técnica importante: o uso ao vivo pode funcionar, mas os dados da EXPO **não estão protegidos contra manipulação direta por alguém com conhecimento da URL do banco**. O link de controle com chave impede apenas ações acidentais pela interface; não representa autorização no servidor.
+O conteúdo institucional considera a explicação pública do Kumon sobre reconhecer alunos adiantados de um a cinco anos além da série, concluintes e alunos com cinco anos de estudos. As classificações e títulos individuais de cada premiação devem ser verificados pela unidade para a edição concreta, e não assumidos como universais.
 
-Não coloque dados de menores, fotos, contatos, boletins, listas privadas ou nomes de homenageados em produção enquanto o banco não tiver regras de segurança apropriadas. Uma configuração de produção comercial exige autenticação de operador, regras de leitura/escrita específicas e auditadas para EXPO, além de teste em aparelhos físicos. Não flexibilize nem substitua regras dos demais sistemas. Consulte `SEGURANCA-IMPORTANTE.md`.
+Referências:
+- https://www.kumon.com.br/blog/no-kumon-a-sua-dedicacao-tem-reconhecimentos1/
+- https://www.kumon.com.br/sobre-nos/conquistas/
+- https://www.kumon.com.br/sobre-nos/aspiracoes/
 
-## Hospedagem
+**Não foram inventados alunos, números da unidade, conquistas individuais nem fotografias.** O arquivo `homenageados.js` permanece vazio. Dados de treinamentos/reuniões não são importados indiscriminadamente.
 
-A Vercel é a **única hospedagem oficial** do projeto. GitHub é a fonte de código e dispara o deploy automático a cada atualização do branch `main`. O workflow antigo do GitHub Pages foi removido.
+## Arquitetura e isolamento
+
+- **Produção:** Vercel, por integração com GitHub `main`.
+- **Firebase:** banco já existente do `reuniaoKumon`; apenas o caminho `kumon_config/expo/sessions/{codigo}` é utilizado para sessões da EXPO.
+- O repositório da reunião e os sistemas de treinamento NÃO foram modificados.
+- Novas sessões usam versão 4. O código trata sessões antigas versão 2/3 sem impor a nova ordem.
+- Teste de integração com Firebase em 17/10/2026: criação isolada, atualização da apresentação, homenagem, aplauso, duas respostas e leitura posterior, com retorno HTTP 200; sessão técnica removida.
+- O código é publicado e validado para compilação JavaScript; não há homologação de concorrência em grande escala nem ensaio em aparelhos reais.
+
+## Atenção: requisito de segurança antes de usar nomes de menores
+
+No Firebase atual, a subárvore EXPO testada **aceitou leitura e escrita sem autenticação**. A chave privativa do apresentador protege a interface, mas não impede modificações diretas no banco. Para eventos públicos com alunos identificados, fotos ou dados pessoais, são obrigatórios: autenticação da equipe, regras de RTDB restritas a EXPO, validação de participantes, autorização pertinente para divulgação e teste operacional com usuários reais. Isso exige acesso administrativo às regras do projeto Firebase.
+
+Até concluir essa proteção, utilize slides institucionais, resultados anônimos e homenagens coletivas ou genéricas, sem informações identificáveis.
+
+Ver também `SEGURANCA-IMPORTANTE.md` e `LEIA-ANTES-DE-USAR.md`.

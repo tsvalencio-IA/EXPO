@@ -21,7 +21,7 @@ const SLIDES=[
 ];
 
 SLIDES.splice(SLIDES.findIndex(x=>x.id==='conquista')+1,0,
-{id:'expo-criterios',type:'cards',kicker:'EXPO KUMON • RECONHECIMENTO',title:'Cada conquista é uma história.',cards:[['✦','Alunos adiantados','Aprendem conteúdos além daqueles previstos para sua etapa escolar.'],['◈','Concluintes','Uma trajetória de estudo até concluir um programa.'],['★','Persistência','Dedicação mantida durante anos e metas alcançadas.']]},
+{id:'expo-criterios',type:'cards',kicker:'EXPO KUMON • RECONHECIMENTO',title:'Cada conquista é uma história.',cards:[['✦','Alunos adiantados','Aprendem conteúdos além daqueles previstos para sua etapa escolar.'],['◈','Concluintes','Uma trajetória de estudo até concluir um programa.'],['★','Cinco anos de dedicação','O Kumon também reconhece alunos que completam cinco anos de trajetória de estudos.']]},
 {id:'toru-1958',type:'cards',kicker:'NOSSA HISTÓRIA',title:'Tudo começou com um pai.',cards:[['1958','Toru Kumon','Origem do método no Japão.'],['01','Cada aluno','O estudo começa no ponto adequado à sua capacidade.'],['∞','Aprender sempre','Autonomia, confiança e perseverança.']]},
 {id:'kumon-connect',type:'cards',kicker:'INOVAÇÃO COM PROPÓSITO',title:'A evolução continua.',cards:[['✎','Mesmo material','O Kumon Connect leva o material didático ao tablet.'],['↗','Mais agilidade','Envio das tarefas e correção mais ágeis.'],['♡','Família presente','Pais e orientadores acompanham conquistas e progresso.']]});
 SLIDES.splice(SLIDES.findIndex(x=>x.id==='final'),0,
