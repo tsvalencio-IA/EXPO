@@ -1,21 +1,30 @@
-// Temporary isolated connectivity diagnostic; no existing Kumon records are read or altered.
+// Temporary integration test. Creates only disposable EXPO session, then deletes it.
 const fs=require('node:fs');
 module.exports=async(req,res)=>{
  res.setHeader('Cache-Control','no-store');
  if(req.method!=='GET')return res.status(405).json({error:'method'});
- const config=fs.readFileSync(require('node:path').join(process.cwd(),'firebase-config.js'),'utf8');
- const apiKey=config.match(/apiKey:\s*["']([^"']+)["']/)?.[1];
- const databaseURL=config.match(/databaseURL:\s*["']([^"']+)["']/)?.[1];
- if(!apiKey||!databaseURL)return res.status(200).json({phase:'config',ok:false});
- try{
-  const authRes=await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='+encodeURIComponent(apiKey),{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({returnSecureToken:true})});
-  const auth=await authRes.json();
-  if(!authRes.ok||!auth.idToken){const u=databaseURL+'/kumon_config/expo/__diagnostico_20261017_001.json';const rd=await fetch(u);const rr={phase:'without-auth',authStatus:authRes.status,authError:auth.error?.message||'no-token',publicRead:rd.status};if(rd.ok){const wr=await fetch(u,{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'diagnostic',at:Date.now()})});rr.publicWrite=wr.status;if(wr.ok){rr.publicVerify=(await fetch(u)).status;rr.publicCleanup=(await fetch(u,{method:'DELETE'})).status}}return res.status(200).json(rr)}
-  const url=databaseURL+'/kumon_config/expo/__diagnostico_20261017_001.json?auth='+encodeURIComponent(auth.idToken);
-  const rd=await fetch(url);let rs={phase:'read',auth:true,read:rd.status}; 
-  if(!rd.ok)return res.status(200).json(rs);
-  const wr=await fetch(url,{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'healthcheck',at:Date.now()})});rs.write=wr.status;
-  if(wr.ok){rs.verify=(await fetch(url)).status;rs.cleanup=(await fetch(url,{method:'DELETE'})).status}
-  return res.status(200).json(rs);
- }catch(e){return res.status(200).json({phase:'network',error:String(e).slice(0,160)})}
+ const file=fs.readFileSync(require('node:path').join(process.cwd(),'firebase-config.js'),'utf8');
+ const root=file.match(/databaseURL:\s*["']([^"']+)["']/)?.[1];
+ if(!root)return res.status(500).json({error:'missing database URL'});
+ const base=root+'/kumon_config/expo/sessions/999991';
+ const json={headers:{'content-type':'application/json'}};
+ let states=[];let created=false;
+ async function request(path,method='GET',body){
+  const opts={method,...(body===undefined?{}:{...json,body:JSON.stringify(body)})};
+  const r=await fetch(base+path+'.json',opts);let data;try{data=await r.json()}catch(e){data=null};states.push({action:method+' '+path,status:r.status});if(!r.ok)throw Error('firebase HTTP '+r.status+' during '+method+' '+path);return data;
+ }
+ try {
+  const old=await request('');if(old!==null)return res.status(200).json({ok:false,collision:true,states});
+  await request('','PUT',{version:3,unit:'Teste técnico EXPO (eliminar)',current:0,accepting:false,reveal:false,answers:{}});
+  created=true;
+  await request('','PATCH',{current:4,accepting:true,activeQuizId:'quiz1'});
+  await request('/answers/quiz1/teste_dispositivo_a','PUT',{option:1,at:Date.now()});
+  await request('/answers/quiz1/teste_dispositivo_b','PUT',{option:2,at:Date.now()});
+  const end=await request('');
+  const one=end?.answers?.quiz1?.teste_dispositivo_a?.option;
+  const two=end?.answers?.quiz1?.teste_dispositivo_b?.option;
+  const ok=end?.current===4 && end?.accepting===true && one===1 && two===2;
+  return res.status(200).json({ok,scenario:'host creates + host advances + 2 independent participants + realtime datastore readback',responses:2,states});
+ }catch(e){return res.status(200).json({ok:false,error:String(e),states})}
+ finally{if(created){try{await fetch(base+'.json',{method:'DELETE'})}catch(e){}}}
 };
