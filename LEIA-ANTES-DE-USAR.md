@@ -51,3 +51,5 @@ O QR Code do painel depende do serviço externo `api.qrserver.com` e de conexão
 - https://github.com/tsvalencio-IA/treinamento
 - https://github.com/tsvalencio-IA/Kumon-IA
 - https://github.com/tsvalencio-IA/KumonRP
+## Hospedagem oficial da EXPO
+A URL de acesso é **https://expo-kumon.vercel.app/**, com deploy pela integração automática GitHub → Vercel. Não utilizar links do GitHub Pages.

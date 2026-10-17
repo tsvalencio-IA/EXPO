@@ -37,7 +37,7 @@ const $=s=>document.querySelector(s);const esc=x=>String(x??'').replace(/[&<>"']
 const fmt=n=>Number(n||0).toLocaleString('pt-BR');
 const homeUrl=()=>location.pathname;
 function goTo(m,c='',o=online){const u=new URL(location.href);u.search='';if(m&&m!=='inicio')u.searchParams.set('modo',m);if(c)u.searchParams.set('sala',c);if(o&&c)u.searchParams.set('online','1');u.hash='';location.assign(u.href)}
-function goBack(){if(mode==='controle')return goTo('inicio')if(mode==='participar'){if(session&&code)return goTo('participar');return goTo('inicio')}if(mode==='apresentacao'){if(code&&hostAuthorized())return goTo('controle',code);return goTo('inicio')}return goTo('inicio')}
+function goBack(){if(mode==='controle')return goTo('inicio');if(mode==='participar'){if(session&&code)return goTo('participar');return goTo('inicio')}if(mode==='apresentacao'){if(code&&hostAuthorized())return goTo('controle',code);return goTo('inicio')}return goTo('inicio')}
 function goClose(){
  if(document.querySelector('.expo-exit-cover'))return;
  const layer=document.createElement('div');
