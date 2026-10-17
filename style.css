@@ -29,3 +29,18 @@
 .toast{display:flex;align-items:center;justify-content:center;gap:14px}
 .toast-dismiss{appearance:none;border:1px solid #ffffff65;background:#ffffff25;color:white;border-radius:8px;min-width:32px;min-height:32px;font-size:22px;line-height:1;flex:0 0 auto}
 @media(max-width:390px){.expo-exit-dialog{padding:21px}.expo-exit-actions{flex-direction:column}.expo-exit-actions .btn{width:100%}}
+
+/* EXPO AO VIVO — direção visual de cerimônia */
+.hero{position:relative;overflow:hidden;isolation:isolate;min-height:340px;background:radial-gradient(ellipse at 88% 12%,rgba(253,165,56,.24),transparent 48%),linear-gradient(120deg,#082a4b 5%,#07588d 96%)!important;color:#fff;border:none!important}
+.hero:after{content:'✦';position:absolute;right:7%;top:5%;font-size:clamp(110px,17vw,290px);opacity:.08;z-index:-1;transform:rotate(-9deg)}
+.hero h1{font-size:clamp(33px,5.6vw,67px)!important;line-height:1.08!important;max-width:760px;color:#fff!important;letter-spacing:-.04em!important}
+.hero p{color:#d9f3ff!important;font-size:clamp(16px,2vw,22px)!important;max-width:700px}
+.hero .tag{color:#ffe1b6!important}
+.stage-main{background:radial-gradient(ellipse at 75% 10%,rgba(255,195,100,.21),transparent 48%),linear-gradient(132deg,#041b34,#06365a 60%,#0c4e79)!important}
+.stage-title{letter-spacing:-.045em;line-height:1.08!important;text-wrap:balance}
+.stage-kicker{letter-spacing:.16em!important}
+.stage-card{background:rgba(255,255,255,.09)!important;backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.17)!important}
+.btn,.nav-btn,.stage-tool{transition:transform .16s ease,box-shadow .16s ease,background .16s ease}
+.btn:not(:disabled):active,.nav-btn:active,.stage-tool:active{transform:scale(.97)}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #f9a737!important;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
