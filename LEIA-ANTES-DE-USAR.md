@@ -14,9 +14,9 @@ Abra `index.html` no navegador (preferencialmente via servidor local HTTP). Sele
 
 Servidor HTTP local opcional: `python -m http.server 8000`; acesse `http://localhost:8000/`.
 
-## Publicação em repositório NOVO (sem alterar projetos existentes)
+## Site publicado no repositório EXPO (sem alterar outros projetos)
 
-Crie, caso deseje, um repositório separado e coloque os arquivos na raiz. Ative GitHub Pages na branch `main`, pasta `/ (root)`. Abra o endereço publicado e crie uma **sessão online**. O link de participação e o QR Code são montados a partir do endereço real publicado.
+O sistema já está hospedado em **https://expo-kumon.vercel.app/** e seu código está em **https://github.com/tsvalencio-IA/EXPO**. A hospedagem usa o Git conectado na Vercel. O endereço é público, mas a sessão online continua dependendo das permissões e segurança do Firebase.
 
 ## Conexão online — restrição importante
 
