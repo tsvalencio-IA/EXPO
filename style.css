@@ -68,3 +68,8 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #f9a7
 .award-seal-mini{margin:12px auto;font-size:60px;color:#e8a53e}
 .award-participate .btn{margin:12px auto;min-height:56px}
 @media(max-width:740px){.award-editor-grid{grid-template-columns:1fr}.award-editor-grid label.wide{grid-column:auto}.award-list-item{align-items:flex-start;flex-direction:column}.award-spotlight{display:flex;flex-direction:column;text-align:center;min-height:auto;gap:12px}.award-seal{width:170px;font-size:80px;border-width:7px}.award-photo{width:180px;height:230px}.award-copy .stage-title{font-size:clamp(28px,8vw,50px)}}
+
+/* Retorno de gravação do quiz: sucesso/pendente/falha diferenciados */
+.expo-answer-ok{background:#e2f7ef!important;border:1px solid #50aa85!important;color:#07583f!important}
+.expo-answer-pending{background:#fff5d6!important;border:1px solid #e8b850!important;color:#59421a!important}
+.expo-answer-error{background:#ffe5e7!important;border:1px solid #d96570!important;color:#7b1a28!important}
