@@ -3,3 +3,18 @@
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
 
 .join-screen{display:flex;align-items:center;gap:clamp(25px,5vw,85px);margin-top:26px;flex-wrap:wrap}.stage-qr{width:clamp(190px,21vw,310px);height:clamp(190px,21vw,310px);padding:14px;border:10px solid white;box-shadow:0 15px 48px #00132a80}.photo-honoree{width:clamp(130px,25vw,300px);height:clamp(150px,29vw,330px);object-fit:cover;border-radius:26px;border:7px solid #ffffffb0;box-shadow:0 18px 55px #0007}@media(max-width:520px){.join-screen{gap:17px}.stage-qr{height:150px;width:150px}.stage-code{font-size:42px}}
+
+/* EXPO v1.1 — navegação sempre visível, com áreas de toque acessíveis */
+.top-right{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+.navigation{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.nav-btn{font:inherit;font-weight:850;font-size:13px;color:#23445c;background:#fff;border:1px solid #b8d7e6;border-radius:12px;min-height:44px;padding:9px 13px;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.nav-btn:hover,.nav-btn:focus-visible{background:#e8f7fd;border-color:#389cc9}
+.nav-btn.close{background:#fff3f2;border-color:#efcbc8;color:#9b3445}
+.nav-btn.close:hover{background:#ffe6e2}
+.stage-header-actions{justify-content:flex-end}
+.stage-tool{color:#fff;background:#ffffff18;border:1px solid #ffffff65;border-radius:12px;padding:9px 12px;min-height:40px;font-weight:800;font-size:13px;white-space:nowrap;transition:background .15s}
+.stage-tool:hover,.stage-tool:focus-visible{background:#ffffff35}
+.stage-tool.danger{border-color:#ffb7b77c;background:#b7435945}
+.stage-tool.danger:hover{background:#bb4f65}
+@media(max-width:820px){.top{flex-wrap:wrap;gap:10px}.top-right{width:100%;justify-content:space-between}.stage-head{height:auto;min-height:72px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px;gap:8px}.stage-header-actions{width:100%;justify-content:flex-start}.stage-main{min-height:0}.stage-tool{font-size:12px}}
+@media(max-width:540px){.navigation{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.nav-btn{min-height:44px;padding:8px 6px;font-size:12px}.top-right{align-items:center}.stage-tool{font-size:11px;min-height:36px;padding:7px 9px}.stage-header-actions .pill{font-size:11px}.stage-head .brand{font-size:13px}.stage-head .brandmark{width:35px;height:35px}.stage-main{padding-top:12px;padding-bottom:12px}}

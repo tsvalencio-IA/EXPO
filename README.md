@@ -8,6 +8,12 @@ Aplicação independente para apresentação em telão, controle pelo apresentad
 - Telão: criado pelo controle da sessão.
 - Participante: pelo QR Code ou código no telão.
 
+## Navegação
+- **Voltar** retorna à entrada do módulo (ou à página inicial quando ainda não há sala).
+- **Início** e **Fechar** retornam ao menu sem apagar ou encerrar a sessão.
+- No **controle**, use **Slide anterior** e **Próximo slide** para mudar a tela do telão.
+- No **telão**, **Tela cheia** amplia a apresentação; a tecla Esc sai da tela cheia.
+
 ## Primeira execução
 1. Abra o controle e crie **sessão de demonstração** para testar localmente (abas do mesmo navegador).
 2. Para celulares diferentes, use **Criar sessão online**, dependente das regras do Firebase Realtime Database e autenticação anônima.
