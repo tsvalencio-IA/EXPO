@@ -10,7 +10,7 @@ module.exports=async(req,res)=>{
  try{
   const authRes=await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key='+encodeURIComponent(apiKey),{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({returnSecureToken:true})});
   const auth=await authRes.json();
-  if(!authRes.ok||!auth.idToken)return res.status(200).json({phase:'auth',status:authRes.status,error:auth.error?.message||'no-token'});
+  if(!authRes.ok||!auth.idToken){const u=databaseURL+'/kumon_config/expo/__diagnostico_20261017_001.json';const rd=await fetch(u);const rr={phase:'without-auth',authStatus:authRes.status,authError:auth.error?.message||'no-token',publicRead:rd.status};if(rd.ok){const wr=await fetch(u,{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify({kind:'diagnostic',at:Date.now()})});rr.publicWrite=wr.status;if(wr.ok){rr.publicVerify=(await fetch(u)).status;rr.publicCleanup=(await fetch(u,{method:'DELETE'})).status}}return res.status(200).json(rr)}
   const url=databaseURL+'/kumon_config/expo/__diagnostico_20261017_001.json?auth='+encodeURIComponent(auth.idToken);
   const rd=await fetch(url);let rs={phase:'read',auth:true,read:rd.status}; 
   if(!rd.ok)return res.status(200).json(rs);
