@@ -44,3 +44,27 @@
 .btn:not(:disabled):active,.nav-btn:active,.stage-tool:active{transform:scale(.97)}
 button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #f9a737!important;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* Homenagens ao vivo EXPO Kumon */
+.expo-award-editor{padding:24px!important}
+.expo-award-editor summary{list-style:none;display:flex;flex-direction:column;gap:4px;cursor:pointer;font-weight:900;font-size:20px;color:var(--ink)}
+.expo-award-editor summary small{font-size:13px;font-weight:500;color:var(--muted)}
+.expo-award-editor summary::-webkit-details-marker{display:none}
+.expo-award-editor[open] summary{padding-bottom:18px;border-bottom:1px solid var(--border);margin-bottom:18px}
+.award-editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.award-editor-grid input,.award-editor-grid select{border:1px solid var(--border);border-radius:12px;padding:13px;width:100%;min-width:0;background:#fff;color:var(--ink);font:inherit}
+.award-editor-grid label.wide{grid-column:1/-1}
+.award-list{display:grid;gap:8px;margin-top:16px}
+.award-list-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border-radius:12px;background:#eaf4f9}
+.award-list-item div:first-child{display:grid;gap:3px}
+.award-list-item small{color:var(--muted)}
+.award-spotlight{display:grid;grid-template-columns:minmax(220px,.7fr) 1.3fr;gap:min(5vw,70px);align-items:center;width:100%;min-height:450px}
+.award-visual{display:flex;justify-content:center;align-items:center}
+.award-seal{width:min(25vw,350px);aspect-ratio:1;border-radius:50%;border:12px solid #f7c471;display:grid;place-items:center;background:radial-gradient(circle at 30% 20%,#ffdc9e,#bb782d);color:#fff5dd;font-size:clamp(90px,15vw,200px);box-shadow:0 30px 80px #0005,inset 0 8px 25px #fff5}
+.award-photo{width:min(25vw,350px);height:min(31vw,420px);object-fit:cover;border-radius:28px;border:8px solid #f7c471;box-shadow:0 30px 70px #0007}
+.award-copy .stage-title{font-size:clamp(40px,6vw,94px);margin:15px 0}
+.award-participate{text-align:center;padding:40px 24px!important}
+.award-participate h1{font-size:clamp(25px,6vw,43px);margin:15px auto}
+.award-seal-mini{margin:12px auto;font-size:60px;color:#e8a53e}
+.award-participate .btn{margin:12px auto;min-height:56px}
+@media(max-width:740px){.award-editor-grid{grid-template-columns:1fr}.award-editor-grid label.wide{grid-column:auto}.award-list-item{align-items:flex-start;flex-direction:column}.award-spotlight{display:flex;flex-direction:column;text-align:center;min-height:auto;gap:12px}.award-seal{width:170px;font-size:80px;border-width:7px}.award-photo{width:180px;height:230px}.award-copy .stage-title{font-size:clamp(28px,8vw,50px)}}
